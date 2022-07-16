@@ -33,6 +33,8 @@ class BankAccount:
         print(f"{self.name}'s balance is ${self.balance} your interest rate is {self.interest_rate}")
 
 
+
+
 lori=BankAccount("Lori", 100, 0.05)
 john=BankAccount("John", 200, 0.05) 
 lori.deposit(50).get_balance().withdraw(25).get_balance().deposit(25).get_balance().withdraw(25).get_balance().interest().get_balance()
