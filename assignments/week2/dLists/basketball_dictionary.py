@@ -1,12 +1,21 @@
 class Player:
-    def __init__(self, name, age, position, team):
-        self.name = name
-        self.age = age
-        self.position = position
-        self.team = team
+    def __init__(self, data):
+        self.name = data["name"]
+        self.age = data["age"]
+        self.position = data["position"]
+        self.team = data["team"]
 
 
+    def __repr__(self):
+        display = f"Player: {self.name}, {self.age} y/o, pos: {self.position}, team: {self.team}"
+        return display
 
+@classmethod
+def add_players(cls, data):
+    player_objects = []
+    for dict in data:
+        player_objects.append(cls(dict))
+    return player_objects
 
 
 
@@ -85,25 +94,19 @@ anon= {
 # Create your Player instances here!
 # player_jason = ???
 
-player_jason = Player(**jason)
-player_kevin = Player(**kevin)
-player_kyrie = Player(**kyrie)
-player_damian = Player(**damian)
-player_joel = Player(**joel)
-player_anon = Player(**anon)
+player_jason = Player(jason)
+player_kevin = Player(kevin)
+player_kyrie = Player(kyrie)
+player_damian = Player(damian)
+player_joel = Player(joel)
+player_anon = Player(anon)
 
 
 new_team = []
 
 for player in players:
-    new_team.append(Player(**player))
-    print(player)
+    new_team.append(Player(player))
+    print(new_team)
 
 # ????
-@classmethod        
-def get_team(cls, players):
-    fantasy_team = []
-    for player in players:
-        fantasy_team.append(Player(**player))
-    return fantasy_team
-print(get_team(players))
+    
