@@ -37,7 +37,7 @@ class BankAccount:
         return(self)
     
     def transfer_money(self,amount,other_user):
-        self.
+        self.balance -= amount
         self.account["checking"].withdraw(amount)
         other_user.account["checking"].deposit(amount)
         print(self.name + " has transferred " + str(amount) + " to " + other_user.name + "'s checking account.")
@@ -101,4 +101,4 @@ class User :
     
 
 lori=User("Lori", "Smith", "email@email.com", age=25,)
-lori.account["checking"].deposit(100).everything()
+lori=BankAccount("checking",0,0.01).deposit(50)

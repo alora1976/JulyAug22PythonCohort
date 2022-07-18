@@ -1,4 +1,3 @@
-
 class BankAccount:
     def __init__(self, name, balance,interest_rate):
         self.name = name
