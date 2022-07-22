@@ -7,8 +7,7 @@ class BankAccount:
             "checking": BankAccount("checking",0,0.01),
             "savings": BankAccount("savings",0,0.05)
         }
-    
-        
+
     def deposit(self, amount):
         self.balance += amount
         print(f"You have deposited, ${amount} {self.name}'s balance is now ${self.balance}")  
