@@ -3,7 +3,7 @@ import random
 
 app = Flask(__name__)
 
-app.secret_key="Benny bob wuz heer."
+app.secret_key="secret key"
 
 @app.route('/')
 def index():
