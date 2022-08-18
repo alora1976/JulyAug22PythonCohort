@@ -2,9 +2,9 @@
 from flask_app import app
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
-from flask_bcrypt import Bcrypt
 from flask_app.models import recipe
 import re
+from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt(app)
 
@@ -30,10 +30,11 @@ class User:
         }
         query = "SELECT * FROM users WHERE email = %(email)s;"
         result = connectToMySQL(DB).query_db(query,data)
-        # Didn't find a matching user
-        if len(result) < 1:
-            return False
-        return cls(result[0])
+        if len(result) > 0:
+            return cls(result[0])
+        return None
+        
+        
     
     @classmethod
     def get_by_id(cls, user_id):

@@ -7,6 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema recipes
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `recipes` ;
 
 -- -----------------------------------------------------
 -- Schema recipes
@@ -15,9 +16,9 @@ CREATE SCHEMA IF NOT EXISTS `recipes` DEFAULT CHARACTER SET utf8 ;
 USE `recipes` ;
 
 -- -----------------------------------------------------
--- Table `recipes`.`user`
+-- Table `recipes`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `recipes`.`user` (
+CREATE TABLE IF NOT EXISTS `recipes`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(255) NULL,
   `last_name` VARCHAR(255) NULL,
@@ -30,9 +31,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `recipes`.`recipe`
+-- Table `recipes`.`recipes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `recipes`.`recipe` (
+CREATE TABLE IF NOT EXISTS `recipes`.`recipes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NULL,
   `description` VARCHAR(255) NULL,
@@ -46,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `recipes`.`recipe` (
   INDEX `fk_recipe_user_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_recipe_user`
     FOREIGN KEY (`user_id`)
-    REFERENCES `recipes`.`user` (`id`)
+    REFERENCES `recipes`.`users` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
